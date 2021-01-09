@@ -1,4 +1,4 @@
-Pixman
+Pixman; adjusted for the armv7-w64-mingw32 compiler
 ======
 
 Pixman is a library that provides low-level pixel manipulation
@@ -19,6 +19,18 @@ or submit improvements in form of a Merge Request via
 For real time discussions about pixman, feel free to join the IRC
 channels #cairo and #xorg-devel on the FreeNode IRC network.
 
+Building
+------------
+To create the Pixman library, you must first ensure you have the armv7 LLVM-MinGW compiler setup and added to your PATH
+
+to build the library - in the root directory, run:
+meson --cross-file=cross.txt --prefix /your/chosen/prefix/here/ arm32build && cd arm32build && meson compile -j $(($(nproc) + 1))
+
+To install:
+meson install
+
+If you're using the ARMV7-patched MXE from this github (assuming it's in the default location), use:
+meson --cross-file=cross.txt --prefix /home/youruser/mxe/usr/armv7-w64-mingw32/ arm32build && cd arm32build && meson compile -j $(($(nproc) + 1)) && meson install
 
 Contributing
 ------------
