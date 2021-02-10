@@ -82,6 +82,7 @@ option(
 option(
   'openmp',
   type : 'feature',
+  value : 'disabled',
   description : 'Enable OpenMP for tests',
 )
 option(
@@ -108,7 +109,7 @@ option(
 )
 option(
   'tests',
-  type : 'feature',
-  value : disabled,
+  type : 'string',
+  value : 'disabled',
   description : 'Build tests and demos'
 )
